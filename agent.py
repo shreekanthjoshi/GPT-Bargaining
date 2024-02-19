@@ -3,6 +3,7 @@ import anthropic
 import ai21
 import re 
 import cohere
+import time
 
 from copy import deepcopy
 from pprint import pprint
@@ -123,12 +124,19 @@ class DialogAgent(object):
         #     message = response['choices'][0]['message']
         if("gpt" in self.engine):
             # import ipdb; ipdb.set_trace()
-            response = completion_with_backoff(
-                          model=self.engine,
-                          messages=messages
-                        )
-            message = response['choices'][0]['message']
-            assert(message['role'] == 'assistant')
+            try:
+                response = completion_with_backoff(
+                        model=self.engine,
+                         messages=messages
+                      )
+                message = response['choices'][0]['message']  
+                assert(message['role'] == 'assistant')
+            except:         
+                print('timeout error')
+                time.sleep(5)
+                message={}
+                message['content']=''
+
         elif("claude" in self.engine):
             prompt_claude = convert_openai_to_anthropic_prompt(messages)
             # import ipdb; ipdb.set_trace()
@@ -186,11 +194,14 @@ class DialogAgent(object):
         
         messages = list(self.dialog_history)
         # messages.append(prompt)
-
-        message = self.call_engine(messages)
         
-        self.dialog_history.append(dict(message))
+        message = self.call_engine(messages)
+        if not message:
+            print('message empty')
+        else:
+            self.dialog_history.append(dict(message))
 
+        
         # self.dialog_round += 1
         # self.history_len = response['usage']['total_tokens']
         return message['content']
@@ -387,8 +398,8 @@ class ModeratorAgent(DialogAgent):
         return
     
     def moderate(self, 
-                 dialog_history, who_was_last="buyer", 
-                 retry=True):
+                 dialog_history, who_was_last 
+                 ):
         """Moderate the conversation between the buyer and the seller"""
         history_len = len(dialog_history)
         if(who_was_last == "buyer"):

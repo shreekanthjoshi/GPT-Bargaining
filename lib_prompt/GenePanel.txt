@@ -1,0 +1,33 @@
+Gene Panel Test
+
+What are the specific patient demographics including history for the condition Lung Adenocarcinoma. do not include genetic results, family history or imaging results. be concise
+Lung adenocarcinoma is a common type of non-small cell lung cancer, accounting for about 40% of all lung cancers. It is more prevalent in older adults, with a mean age of diagnosis around 71 years. The condition is more common in men than women, and smoking is the leading risk factor. Other risk factors include a family history of lung cancer, occupational exposure to carcinogens, and certain genetic mutations. The disease is usually found in the outer regions of the lungs and may be detected in scars or areas of chronic inflammation
+
+Give  example of information in pathology report for the condition Lung Adenocarcinoma. do not include patient demographics, be concise, do not include genetic information
+Histological diagnosis: Invasive adenocarcinoma
+Histological subtype: Acinar predominant with secondary solid growth pattern
+Tumor size and location: Left upper lobe, wedge resection
+Histological grade: Grade 2
+Immunohistochemical stains: Positive for TTF-1
+Molecular markers: No specific mutations mentioned (EGFR, ALK, ROS1)
+
+For a patient with the condition Lung Adenocarcinoma, give a example family history example. do not mention patient demographics, be concise. for example - The patient's father was diagnosed with lung cancer at the age of 60, and their paternal grandmother also had a history of lung cancer.
+The patient's paternal grandfather and paternal grandmother both had a history of lung cancer.
+
+Vignette Generation Template 
+The following are several passages about the demographics, pathology report and family history for a given condition. 
+Generate  patient vignette consistent with these passages. Follow the format of the given example (just list N/A if a particular field is unavailable). 
+Condition: Lung Adenocarcinoma
+Demographics: Lung adenocarcinoma is a common type of non-small cell lung cancer, accounting for about 40% of all lung cancers. It is more prevalent in older adults, with a mean age of diagnosis around 71 years. The condition is more common in men than women, and smoking is the leading risk factor. Other risk factors include a family history of lung cancer, occupational exposure to carcinogens, and certain genetic mutations. The disease is usually found in the outer regions of the lungs and may be detected in scars or areas of chronic inflammation
+Pathology Report: Histological diagnosis: Invasive adenocarcinoma
+Histological subtype: Acinar predominant with secondary solid growth pattern
+Tumor size and location: Left upper lobe, wedge resection
+Histological grade: Grade 2
+Immunohistochemical stains: Positive for TTF-1
+Molecular markers: No specific mutations mentioned (EGFR, ALK, ROS1)
+Family History: The patient's paternal grandfather and paternal grandmother both had a history of lung cancer.
+Example Format: The patient is a 62-year-old male who has a history of smoking for 40 years. He presents with a persistent cough, shortness of breath, and chest pain.
+A biopsy of the lung mass revealed that the patient has stage IIIA lung adenocarcinoma. The tumor is located in the upper lobe of the right lung and measures 5 cm in diameter. The cancer has spread to nearby lymph nodes.
+The patient reports no family history of lung cancer, but his father died of heart disease at the age of 70.
+Patient Vignette for Lung Adenocarcinoma : 
+The patient is a 71-year-old male who has smoked for the past 50 years. He presents with shortness of breath, coughing up blood and chest pain. A biopsy revealed that he has stage IIIB lung adenocarcinoma which measures about 4 cm in diameter located on his left upper lobe after undergoing wedge resection surgery. Pathology report showed an invasive acinar predominant subtype with secondary solid growth pattern and positive TTF-1 immunohistochemical stains but no specific mutations mentioned (EGFR, ALK, ROS1). His family history reveals both paternal grandfather and grandmother had a history of lung cancer.
