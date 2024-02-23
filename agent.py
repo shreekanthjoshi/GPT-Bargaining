@@ -400,24 +400,24 @@ class ModeratorAgent(DialogAgent):
     def moderate(self, 
                  dialog_history, who_was_last 
                  ):
-        """Moderate the conversation between the buyer and the seller"""
+        """Moderate the conversation between the counselor and the patient"""
         history_len = len(dialog_history)
-        if(who_was_last == "buyer"):
-            prompt = "buyer: %s\n" % dialog_history[history_len - 1]["content"]
+        if(who_was_last == "patient"):
+            prompt = "patient: %s\n" % dialog_history[history_len - 1]["content"]
             offset = 1
         else: 
-            prompt = "seller: %s\n" % dialog_history[history_len - 1]["content"]
+            prompt = "counselor: %s\n" % dialog_history[history_len - 1]["content"]
             offset = 0
 
         for i in range(self.trace_n_history - 1):
             idx = history_len - i - 2
             content = dialog_history[idx]["content"]
             if(i % 2 == offset):
-                prompt = "buyer: %s\n" % content + prompt
+                prompt = "patient: %s\n" % content + prompt
             else:
-                prompt = "seller: %s\n" % content + prompt
+                prompt = "counselor: %s\n" % content + prompt
         
-        prompt += "question: have the seller and the buyer achieved a deal? Yes or No\nanswer:"
+        prompt += "question: has the conversation between counsellor and patient reached a conclusion Yes or No\nanswer:"
         self.last_prompt = prompt
         
         messages = deepcopy(self.dialog_history)

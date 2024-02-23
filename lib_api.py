@@ -21,9 +21,26 @@ STOP_AFTER_ATTEMPT=4
 @retry(stop=stop_after_attempt(STOP_AFTER_ATTEMPT), 
         wait=wait_chain(*[wait_fixed(3) for i in range(2)] +
                        [wait_fixed(5) for i in range(1)]))
-def completion_with_backoff(**kwargs):
+def completion_with_backoff(model, messages):
     """OpenAI API wrapper, if network error then retry 3 times"""
-    return openai.ChatCompletion.create(**kwargs)
+
+    openai.api_type = "azure"
+    openai.api_base = "https://tfccgpoc.openai.azure.com/"
+    openai.api_version = "2023-09-15-preview"
+    openai.api_key = ' '
+    return openai.ChatCompletion.create(
+        engine="TFccgUsecase",
+        messages = messages,
+        temperature=0.7,
+        max_tokens=800,
+        top_p=0.95,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=None
+        )
+
+
+    #return openai.ChatCompletion.create(**kwargs)
 
 
 @retry(stop=stop_after_attempt(STOP_AFTER_ATTEMPT), 
