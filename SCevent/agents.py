@@ -31,7 +31,7 @@ def initial_instructions(instructions):
             initial_instruction.append(instruction)
     return initial_instruction
 
-def wprint(s, fd=None, verbose=True):
+def wprint(s, fd=None, verbose=False):
     if(fd is not None): fd.write(s + '\n')
     if(verbose): print(s)
     return 

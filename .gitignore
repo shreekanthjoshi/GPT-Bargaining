@@ -10,3 +10,4 @@ processed_data
 checkpoints/
 BIG-Bench-Hard/
 local/
+SCevent/.env
